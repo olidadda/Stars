@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Position Notes Generator</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Star Position Notes Generator</h1>
+      <p>
+        This tool generates notes based on the relative positions between stars.
+        Input the coordinates of two stars to get started.
+      </p>
+
+      <form id="starForm">
+        <div class="star-group">
+          <div class="star-title">Star 1</div>
+          <div class="input-group">
+            <label for="star1RA">Right Ascension (degrees):</label>
+            <input
+              type="text"
+              id="star1RA"
+              name="star1RA"
+              placeholder="e.g. 45.23"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="star1Dec">Declination (degrees):</label>
+            <input
+              type="text"
+              id="star1Dec"
+              name="star1Dec"
+              placeholder="e.g. -23.45"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="star-group">
+          <div class="star-title">Star 2</div>
+          <div class="input-group">
+            <label for="star2RA">Right Ascension (degrees):</label>
+            <input
+              type="text"
+              id="star2RA"
+              name="star2RA"
+              placeholder="e.g. 23.45"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="star2Dec">Declination (degrees):</label>
+            <input
+              type="text"
+              id="star2Dec"
+              name="star2Dec"
+              placeholder="e.g. 45.67"
+              required
+            />
+          </div>
+        </div>
+
+        <button type="submit">Generate Notes</button>
+      </form>
+
+      <div id="results"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

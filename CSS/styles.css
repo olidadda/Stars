@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.star-group {
+  margin-bottom: 20px; /* Space after each star's set of input fields */
+}
+.star-title {
+  font-weight: bold; /* Make Star 1 and Star 2 bold */
+  margin-bottom: 10px; /* Space after the title */
+}
+.input-group {
+  margin-bottom: 10px; /* Space after each input field */
+}
