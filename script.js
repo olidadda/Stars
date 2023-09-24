@@ -9,20 +9,40 @@ document
     const star2RA = parseFloat(document.getElementById("star2RA").value);
     const star2Dec = parseFloat(document.getElementById("star2Dec").value);
 
-    // Calculate Delta Dec and Delta RA
+    // Calculate Δ Dec and Δ RA
     const deltaDec = star2Dec - star1Dec;
-    const deltaRA = star2RA - star1RA;
+    let deltaRA = star2RA - star1RA;
 
-    // Determine star positions
-    const decPosition = deltaDec < 0 ? "lower" : "higher";
-    const raPosition = deltaRA < 0 ? "to the right" : "to the left";
+    // Determine the quadrant
+    let quadrant;
+    if (deltaDec >= 0 && deltaRA >= 0) {
+      quadrant = "first";
+    } else if (deltaDec >= 0 && deltaRA < 0) {
+      quadrant = "second";
+    } else if (deltaDec < 0 && deltaRA < 0) {
+      quadrant = "third";
+    } else {
+      quadrant = "fourth";
+    }
+
+    // Store the quadrant information for later use
+    window.starQuadrant = quadrant; // Saving in a global variable for now
+
+    // Update the sign of Δ RA after determining the quadrant
+    deltaRA = -deltaRA;
+
+    // Calculate the gradient m
+    const gradientM = deltaDec / deltaRA;
 
     // Display results
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = `
-        <p>Delta Dec = ${deltaDec.toFixed(2)}</p>
-        <p>Delta RA = ${deltaRA.toFixed(2)}</p>
-        <p>The second star is ${decPosition} than the first star.</p>
-        <p>The second star is ${raPosition} of the first star.</p>
-    `;
+      <p>Δ Dec = ${deltaDec.toFixed(2)}</p>
+      <p>Δ RA = ${deltaRA.toFixed(
+        2
+      )} (Note: The sign of Δ RA is updated to reflect the right-to-left calculation of Right Ascension and to facilitate subsequent calculations.)</p>
+      
+      <p>The second star is located in the ${quadrant} quadrant relative to the first star.</p>
+      <p>The gradient m = ${gradientM.toFixed(2)}</p>
+  `;
   });
