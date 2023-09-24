@@ -37,12 +37,11 @@ document
     // Display results
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = `
-      <p>Δ Dec = ${deltaDec.toFixed(2)}</p>
-      <p>Δ RA = ${deltaRA.toFixed(
-        2
-      )} (Note: The sign of Δ RA is updated to reflect the right-to-left calculation of Right Ascension and to facilitate subsequent calculations.)</p>
-      
-      <p>The second star is located in the ${quadrant} quadrant relative to the first star.</p>
-      <p>The gradient m = ${gradientM.toFixed(2)}</p>
-  `;
+    <p><strong><em>Δ</em></strong> Dec = ${deltaDec.toFixed(2)}</p>
+    <p><strong><em>Δ</em></strong> RA = ${deltaRA.toFixed(
+      2
+    )} <br><br>(Note: The sign of Δ RA is updated to reflect the right-to-left calculation of Right Ascension and to facilitate subsequent calculations.)</p>
+    <p>The gradient <strong><em>m</em></strong> = ${gradientM.toFixed(2)}</p>
+    <p>The second star is located in the ${quadrant} quadrant relative to the first star.</p>
+`;
   });
