@@ -13,6 +13,9 @@ document
     const deltaDec = star2Dec - star1Dec;
     let deltaRA = star2RA - star1RA;
 
+    // Update the sign of Δ RA after determining the quadrant
+    deltaRA = -deltaRA;
+
     // Determine the quadrant
     let quadrant;
     if (deltaDec >= 0 && deltaRA >= 0) {
@@ -28,9 +31,6 @@ document
     // Store the quadrant information for later use
     window.starQuadrant = quadrant; // Saving in a global variable for now
 
-    // Update the sign of Δ RA after determining the quadrant
-    deltaRA = -deltaRA;
-
     // Calculate the gradient m
     const gradientM = deltaDec / deltaRA;
 
@@ -42,6 +42,18 @@ document
       2
     )} <br><br>(Note: The sign of Δ RA is updated to reflect the right-to-left calculation of Right Ascension and to facilitate subsequent calculations.)</p>
     <p>The gradient <strong><em>m</em></strong> = ${gradientM.toFixed(2)}</p>
-    <p>The second star is located in the ${quadrant} quadrant relative to the first star.</p>
-`;
+    <p>The second star is located in the ${quadrant} quadrant relative to the first star.</p>`;
+
+    // Calculate the angle using arctan
+    let angle = Math.atan(gradientM) * (180 / Math.PI); // Convert from radians to degrees
+
+    // Adjust the angle based on the quadrant
+    if (quadrant === "second" || quadrant === "third") {
+      angle += 180;
+    }
+
+    // Display the result
+    resultsDiv.innerHTML += `<p>The direction of the second star is at an angle of ${angle.toFixed(
+      2
+    )}° from the first star.</p>`;
   });
