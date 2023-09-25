@@ -42,7 +42,7 @@ document
       2
     )} <br><br>(Note: The sign of Δ RA is updated to reflect the right-to-left calculation of Right Ascension and to facilitate subsequent calculations.)</p>
     <p>The gradient <strong><em>m</em></strong> = ${gradientM.toFixed(2)}</p>
-    <p>The second star is located in the ${quadrant} quadrant relative to the first star.</p>`;
+    <p>The second star is located in the <strong> ${quadrant} quadrant </strong> relative to the first star.</p>`;
 
     // Calculate the angle using arctan
     let angle = Math.atan(gradientM) * (180 / Math.PI); // Convert from radians to degrees
@@ -53,7 +53,7 @@ document
     }
 
     // Display the result
-    resultsDiv.innerHTML += `<p>The direction of the second star is at an angle of ${angle.toFixed(
+    resultsDiv.innerHTML += `<p>The direction of the second star is at an angle of <strong> ${angle.toFixed(
       2
-    )}° from the first star.</p>`;
+    )}° </strong> from the first star.</p>`;
   });
