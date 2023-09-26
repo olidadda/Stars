@@ -80,7 +80,7 @@ document
       star2RA,
       star2Dec
     );
-    resultsDiv.innerHTML += `<p>The <strong>angular separatio</strong> between the two stars is <strong>${angularSeparation.toFixed(
+    resultsDiv.innerHTML += `<p>The <strong>angular separation</strong> between the two stars is <strong>${angularSeparation.toFixed(
       2
     )}°</strong>.</p>`;
 
