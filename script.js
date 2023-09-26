@@ -1,6 +1,6 @@
 // Sample star data (you can expand this with more stars and their coordinates)
 const starData = {
-  Betelgeuse: { ra: "88.8", dec: "7.4" },
+  Betelgeuse: { ra: "88.79", dec: "7.41" },
   Bellatrix: { ra: "81.28", dec: "6.35" },
   Epsilon: { ra: "281.08", dec: "39.67" },
   Vega: { ra: "279.23", dec: "38.78" },
@@ -74,6 +74,16 @@ document
     <p>The gradient <strong><em>m</em></strong> = ${gradientM.toFixed(2)}</p>
     <p>The second star is located in the <strong> ${quadrant} quadrant </strong> relative to the first star.</p>`;
 
+    const angularSeparation = calculateAngularSeparation(
+      star1RA,
+      star1Dec,
+      star2RA,
+      star2Dec
+    );
+    resultsDiv.innerHTML += `<p>The angular separation between the two stars is <strong>${angularSeparation.toFixed(
+      2
+    )}°</strong>.</p>`;
+
     // Calculate the angle using arctan
     let angle = Math.atan(gradientM) * (180 / Math.PI); // Convert from radians to degrees
 
@@ -86,4 +96,23 @@ document
     resultsDiv.innerHTML += `<p>The direction of the second star is at an angle of <strong> ${angle.toFixed(
       2
     )}° </strong> from the first star.</p>`;
+
+    function calculateAngularSeparation(ra1, dec1, ra2, dec2) {
+      // Convert degrees to radians
+      const rad = (deg) => (deg * Math.PI) / 180;
+
+      ra1 = rad(ra1);
+      dec1 = rad(dec1);
+      ra2 = rad(ra2);
+      dec2 = rad(dec2);
+
+      // Haversine formula
+      const cosDeltaSep =
+        Math.sin(dec1) * Math.sin(dec2) +
+        Math.cos(dec1) * Math.cos(dec2) * Math.cos(ra1 - ra2);
+      const deltaSep = Math.acos(cosDeltaSep);
+
+      // Convert radians back to degrees
+      return (deltaSep * 180) / Math.PI;
+    }
   });
