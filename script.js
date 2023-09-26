@@ -70,9 +70,7 @@ document
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = `
     <p><strong><em>Δ</em> Dec</strong> = ${deltaDec.toFixed(2)}</p>
-    <p><strong><em>Δ</em> RA</strong> = ${deltaRA.toFixed(
-      2
-    )} <br><br>(Note: The sign of Δ RA is updated to reflect the right-to-left calculation of Right Ascension and to facilitate subsequent calculations.)</p>
+    <p><strong><em>Δ</em> RA</strong> = ${deltaRA.toFixed(2)} <br><br></p>
     <p>The gradient <strong><em>m</em></strong> = ${gradientM.toFixed(2)}</p>
     <p>The second star is located in the <strong> ${quadrant} quadrant </strong> relative to the first star.</p>`;
 
