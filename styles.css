@@ -16,3 +16,11 @@ body {
 .input-group {
   margin-bottom: 10px; /* Space after each input field */
 }
+
+.highlighted-result {
+  border: 2px solid #030303; /* Adjust the border color as needed */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px; /* Optional: to give rounded corners */
+  background-color: #b7f5feee; /* Optional: to give a light background color */
+}

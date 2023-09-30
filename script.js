@@ -70,7 +70,7 @@ document
     const resultsDiv = document.getElementById("results");
     resultsDiv.innerHTML = `
     <p><strong><em>Δ</em> Dec</strong> = ${deltaDec.toFixed(2)}</p>
-    <p><strong><em>Δ</em> RA</strong> = ${deltaRA.toFixed(2)} <br><br></p>
+    <p><strong><em>Δ</em> RA</strong> = ${deltaRA.toFixed(2)} <br></p>
     <p>The gradient <strong><em>m</em></strong> = ${gradientM.toFixed(2)}</p>
     <p>The second star is located in the <strong> ${quadrant} quadrant </strong> relative to the first star.</p>`;
 
@@ -80,7 +80,7 @@ document
       star2RA,
       star2Dec
     );
-    resultsDiv.innerHTML += `<p>The <strong>angular separation</strong> between the two stars is <strong>${angularSeparation.toFixed(
+    resultsDiv.innerHTML += `<p class="highlighted-result">The <strong>angular separation</strong> between the two stars is <strong>${angularSeparation.toFixed(
       2
     )}°</strong>.</p>`;
 
@@ -93,7 +93,7 @@ document
     }
 
     // Display the result
-    resultsDiv.innerHTML += `<p>The <strong>direction</strong> of the second star is at an angle of <strong> ${angle.toFixed(
+    resultsDiv.innerHTML += `<p class="highlighted-result">The <strong>direction</strong> of the second star is at an angle of <strong> ${angle.toFixed(
       2
     )}° </strong> from the first star.</p>`;
 
